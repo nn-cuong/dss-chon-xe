@@ -1,0 +1,16 @@
+services:
+  dss-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: dss-motorbike-api:latest
+    container_name: dss-api
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      # Mount the data directory so dataset/weights can be updated without a rebuild.
+      - ./backend/data:/app/data
+    restart: unless-stopped

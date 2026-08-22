@@ -1,0 +1,438 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "DSS Motorbike Recommender",
+    "description": "AHP + TOPSIS decision support for motorbike selection.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/dss/default-criteria": {
+      "get": {
+        "tags": [
+          "DSS"
+        ],
+        "summary": "Default criteria (weights + benefit/cost)",
+        "description": "Return the 7 default criteria synced from criteria_weights.csv.\n\nEach entry exposes the column key, Vietnamese name, the default normalized\nweight (from criteria_weights.csv) and whether it is Benefit (maximize)\nor Cost (minimize).",
+        "operationId": "default_criteria_api_v1_dss_default_criteria_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dss/criteria": {
+      "get": {
+        "tags": [
+          "DSS"
+        ],
+        "summary": "List evaluation criteria",
+        "operationId": "list_criteria_api_v1_dss_criteria_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dss/brands": {
+      "get": {
+        "tags": [
+          "DSS"
+        ],
+        "summary": "List brands",
+        "operationId": "list_brands_api_v1_dss_brands_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dss/ahp": {
+      "post": {
+        "tags": [
+          "DSS"
+        ],
+        "summary": "Run AHP",
+        "operationId": "run_ahp_api_v1_dss_ahp_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                "type": "array",
+                "title": "Weights Matrix"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AHPResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dss/run": {
+      "post": {
+        "tags": [
+          "DSS"
+        ],
+        "summary": "Run DSS (AHP+TOPSIS)",
+        "operationId": "run_dss_api_v1_dss_run_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DSSRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WSSResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Health check",
+        "operationId": "health__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AHPResult": {
+        "properties": {
+          "weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Weights"
+          },
+          "lambda_max": {
+            "type": "number",
+            "title": "Lambda Max"
+          },
+          "ci": {
+            "type": "number",
+            "title": "Ci"
+          },
+          "cr": {
+            "type": "number",
+            "title": "Cr"
+          },
+          "is_consistent": {
+            "type": "boolean",
+            "title": "Is Consistent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "weights",
+          "lambda_max",
+          "ci",
+          "cr",
+          "is_consistent"
+        ],
+        "title": "AHPResult"
+      },
+      "DSSRequest": {
+        "properties": {
+          "weights": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weights",
+            "description": "Criteria weights (unnormalized)."
+          },
+          "pairwise_matrix": {
+            "anyOf": [
+              {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pairwise Matrix",
+            "description": "AHP pairwise comparison matrix."
+          },
+          "max_price_vnd": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Price Vnd",
+            "description": "Maximum price in VND."
+          },
+          "powertrain": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Powertrain",
+            "description": "ICE | EV | ALL",
+            "default": "ALL"
+          },
+          "brand_list": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Brand List"
+          },
+          "vehicle_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Type"
+          }
+        },
+        "type": "object",
+        "title": "DSSRequest",
+        "description": "Input request for a DSS evaluation."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "rows": {
+            "type": "integer",
+            "title": "Rows"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "rows"
+        ],
+        "title": "HealthResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WSSResult": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "total_candidates": {
+            "type": "integer",
+            "title": "Total Candidates"
+          },
+          "criteria": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Criteria"
+          },
+          "weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Weights"
+          },
+          "rankings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Rankings"
+          },
+          "top_choice": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Top Choice"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "total_candidates",
+          "criteria",
+          "weights",
+          "rankings",
+          "top_choice",
+          "explanation"
+        ],
+        "title": "WSSResult"
+      }
+    }
+  }
+}

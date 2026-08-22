@@ -1,0 +1,120 @@
+﻿bike_name,vehicle_type,powertrain,price_vnd,fuel_consumption_l_per_100km,max_power_kw,underseat_storage_l,abs,curb_weight_kg,vehicle_warranty_months
+Honda Air Blade phiên bản Thể Thao,xe tay ga,ICE,58790000.0,2.23,11.2,23.2,0,113.0,36.0
+Honda Air Blade phiên bản Đặc Biệt,xe tay ga,ICE,58290000.0,2.23,11.2,23.2,0,113.0,36.0
+Honda Air Blade phiên bản Tiêu Chuẩn,xe tay ga,ICE,57090000.0,2.23,11.2,23.2,0,113.0,36.0
+Honda Air Blade phiên bản Thể Thao,xe tay ga,ICE,48001091.0,2.12,8.75,23.2,0,111.0,36.0
+Honda Air Blade phiên bản Đặc Biệt,xe tay ga,ICE,43582909.0,2.12,8.75,23.2,0,110.0,36.0
+Honda Air Blade phiên bản Tiêu Chuẩn,xe tay ga,ICE,42404727.0,2.12,8.75,23.2,0,110.0,36.0
+Honda Air Blade phiên bản Marvel ' Spider-Man,xe tay ga,ICE,48099273.0,2.12,8.75,23.2,0,110.0,36.0
+Honda Air Blade phiên bản Marvel ' Venom,xe tay ga,ICE,48099273.0,2.12,8.75,23.2,0,110.0,36.0
+Honda Blade Phiên bản Thể Thao,xe số,ICE,21943637.0,1.85,6.18,10.0,0,99.0,36.0
+Honda Blade Phiên bản Đặc Biệt,xe số,ICE,20470909.0,1.85,6.18,10.0,0,99.0,36.0
+Honda Blade Phiên bản Tiêu Chuẩn,xe số,ICE,18900000.0,1.85,6.18,10.0,0,99.0,36.0
+Honda CBR150 Phiên bản Thể Thao,xe côn tay,ICE,73790000.0,2.91,12.6,0.0,0,139.0,36.0
+Honda CBR150 Phiên bản Đặc Biệt,xe côn tay,ICE,73290000.0,2.91,12.6,0.0,0,139.0,36.0
+Honda CBR150 Phiên bản Tiêu Chuẩn,xe côn tay,ICE,72290000.0,2.91,12.6,0.0,0,139.0,36.0
+Honda Future Phiên bản Đặc biệt,xe số,ICE,32292000.0,1.47,6.83,12.0,0,104.0,36.0
+Honda Future Phiên bản Cao cấp,xe số,ICE,31801091.0,1.47,6.83,12.0,0,104.0,36.0
+Honda Future Phiên bản Tiêu chuẩn,xe số,ICE,30622909.0,1.47,6.83,12.0,0,104.0,36.0
+Honda LEAD Phiên bản Đặc biệt,xe tay ga,ICE,45841091.0,2.1,8.22,37.0,0,114.0,36.0
+Honda LEAD Phiên bản Cao cấp,xe tay ga,ICE,41913818.0,2.1,8.22,37.0,0,114.0,36.0
+Honda LEAD Phiên bản Tiêu chuẩn,xe tay ga,ICE,39753818.0,2.1,8.22,37.0,0,113.0,36.0
+Honda SH Mode Phiên bản thể thao,xe tay ga,ICE,64004727.0,2.12,8.2,18.5,0,116.0,36.0
+Honda SH Mode Phiên bản đặc biệt,xe tay ga,ICE,63513818.0,2.12,8.2,18.5,0,116.0,36.0
+Honda SH Mode Phiên bản cao cấp,xe tay ga,ICE,62335637.0,2.12,8.2,18.5,0,116.0,36.0
+Honda SH Mode Phiên bản tiêu chuẩn,xe tay ga,ICE,57328363.0,2.12,8.2,18.5,0,116.0,36.0
+Honda SH Phiên bản Thể Thao,xe tay ga,ICE,104000000.0,2.34,12.4,28.0,0,134.0,36.0
+Honda SH Phiên bản Đặc Biệt,xe tay ga,ICE,104000000.0,2.34,12.4,28.0,0,134.0,36.0
+Honda SH Phiên bản Cao Cấp,xe tay ga,ICE,103000000.0,2.34,12.4,28.0,0,134.0,36.0
+Honda SH Phiên bản Tiêu Chuẩn,xe tay ga,ICE,95290000.0,2.34,12.4,28.0,0,134.0,36.0
+Honda SH Phiên bản Thể Thao,xe tay ga,ICE,85702909.0,2.33,9.6,28.0,0,133.0,36.0
+Honda SH Phiên bản Đặc Biệt,xe tay ga,ICE,85212000.0,2.33,9.6,28.0,0,133.0,36.0
+Honda SH Phiên bản Cao Cấp,xe tay ga,ICE,84033818.0,2.33,9.6,28.0,0,133.0,36.0
+Honda SH Phiên bản Tiêu Chuẩn,xe tay ga,ICE,76670182.0,2.33,9.6,28.0,0,133.0,36.0
+Honda Vario Đặc Biệt,xe tay ga,ICE,41913818.0,2.11,8.48,18.0,0,111.0,36.0
+Honda Vario Street,xe tay ga,ICE,42895637.0,2.11,8.48,18.0,0,112.0,36.0
+Honda Vario Thể Thao,xe tay ga,ICE,56690000.0,2.2,11.3,17.9,0,118.0,36.0
+Honda Vision Phiên bản Thể thao,xe tay ga,ICE,36808363.0,1.82,6.59,18.0,0,97.0,36.0
+Honda Vision Phiên bản Đặc biệt,xe tay ga,ICE,34550182.0,1.82,6.59,18.0,0,94.0,36.0
+Honda Vision Phiên bản Cao cấp,xe tay ga,ICE,33175637.0,1.82,6.59,18.0,0,94.0,36.0
+Honda Vision Phiên bản Tiêu chuẩn,xe tay ga,ICE,31506545.0,1.82,6.59,18.0,0,93.0,36.0
+Honda Wave Alpha Phiên bản đặc biệt,xe số,ICE,18841091.0,1.72,6.12,5.0,0,96.0,36.0
+Honda Wave Alpha Phiên bản tiêu chuẩn,xe số,ICE,17957455.0,1.72,6.12,5.0,0,96.0,36.0
+Honda Wave Alpha,xe số,ICE,19037455.0,1.72,6.12,5.0,0,96.0,36.0
+Honda Wave RSX Phiên bản Thể thao,xe số,ICE,25664727.0,1.56,6.46,10.0,0,98.0,36.0
+Honda Wave RSX Phiên bản Đặc biệt,xe số,ICE,23701091.0,1.56,6.46,10.0,0,97.0,36.0
+Honda Wave RSX Phiên bản Tiêu chuẩn,xe số,ICE,22130182.0,1.56,6.46,10.0,0,97.0,36.0
+Honda WINNER Phiên bản Thể Thao,xe côn tay,ICE,50760000.0,2.59,11.5,0.0,0,124.0,36.0
+Honda WINNER Phiên bản Đặc Biệt,xe côn tay,ICE,50260000.0,2.59,11.5,0.0,0,124.0,36.0
+Honda WINNER Phiên bản Tiêu Chuẩn,xe côn tay,ICE,46360000.0,2.59,11.5,0.0,0,123.0,36.0
+Yamaha Grande phiên bản giới hạn màu mới nhất 2025,xe tay ga,ICE,52037000.0,1.73,6.5,27.0,1,101.0,36.0
+Yamaha Grande phiên bản giới hạn màu mới 2024,xe tay ga,ICE,51644000.0,1.73,6.5,27.0,1,101.0,36.0
+Yamaha Grande phiên bản tiêu chuẩn màu mới nhất 2025,xe tay ga,ICE,46637000.0,1.73,6.5,27.0,0,100.0,36.0
+Yamaha Grande phiên bản tiêu chuẩn màu mới 2024,xe tay ga,ICE,46244000.0,1.73,6.5,27.0,0,100.0,36.0
+Yamaha Grande phiên bản đặc biệt màu mới nhất 2025,xe tay ga,ICE,51546000.0,9.77,6.5,27.0,1,101.0,36.0
+Yamaha Grande phiên bản đặc biệt màu mới 2024,xe tay ga,ICE,50859000.0,9.77,6.5,27.0,1,101.0,36.0
+Yamaha Exciter Phiên bản SP,xe côn tay,ICE,59900000.0,2.07,13.6,0.0,1,124.0,36.0
+Yamaha Exciter Phiên bản Giới hạn,xe côn tay,ICE,60900000.0,2.07,13.6,0.0,1,124.0,36.0
+Yamaha Exciter Phiên bản Cao Cấp,xe côn tay,ICE,54900000.0,2.07,13.6,0.0,0,121.0,36.0
+Yamaha Exciter Phiên bản Tiêu chuẩn,xe côn tay,ICE,49900000.0,2.07,13.6,0.0,0,120.0,36.0
+Yamaha GEAR phiên bản cao cấp,xe tay ga,ICE,34364000.0,1.7,6.2,17.4,0,96.0,36.0
+Yamaha GEAR phiên bản tiêu chuẩn,xe tay ga,ICE,30437000.0,1.7,6.2,17.4,0,95.0,36.0
+Yamaha Lexi phiên bản cao cấp mới,xe tay ga,ICE,49900000.0,2.19,11.3,20.0,1,118.0,36.0
+Yamaha Lexi phiên bản cao cấp,xe tay ga,ICE,48900000.0,2.19,11.3,20.0,1,118.0,36.0
+Yamaha Lexi phiên bản tiêu chuẩn,xe tay ga,ICE,48500000.0,2.19,11.3,20.0,1,118.0,36.0
+Yamaha Lexi phiên bản tiêu chuẩn mới,xe tay ga,ICE,48900000.0,2.19,11.3,20.0,1,118.0,36.0
+Yamaha Freego phiên bản đặc biệt màu mới,xe tay ga,ICE,34855000.0,2.03,7.0,25.0,1,102.0,36.0
+Yamaha Freego phiên bản đặc biệt,xe tay ga,ICE,34265500.0,2.03,7.0,25.0,1,102.0,36.0
+Yamaha Freego phiên bản tiêu chuẩn màu mới,xe tay ga,ICE,30731000.0,2.03,7.0,25.0,0,100.0,36.0
+Yamaha Freego phiên bản tiêu chuẩn,xe tay ga,ICE,30340000.0,2.03,7.0,25.0,0,100.0,36.0
+Yamaha Jupiter phiên bản cao cấp màu mới 2025,xe số,ICE,28768000.0,1.64,6.6,9.7,0,100.0,36.0
+Yamaha Jupiter phiên bản tiêu chuẩn màu mới 2025,xe số,ICE,28277000.0,1.64,6.6,9.7,0,100.0,36.0
+Yamaha Janus phiên bản giới hạn hoàn toàn mới,xe tay ga,ICE,33382000.0,1.98,7.0,15.3,0,99.0,36.0
+Yamaha Janus phiên bản giới hạn màu mới 2025,xe tay ga,ICE,33579000.0,1.98,7.0,15.3,0,99.0,36.0
+Yamaha Janus phiên bản tiêu chuẩn hoàn toàn mới,xe tay ga,ICE,29151000.0,1.98,7.0,15.3,0,97.0,36.0
+Yamaha Janus phiên bản tiêu chuẩn màu mới 2025,xe tay ga,ICE,29160000.0,1.98,7.0,15.3,0,97.0,36.0
+Yamaha Janus phiên bản đặc biệt màu mới 2025,xe tay ga,ICE,33382000.0,1.98,7.0,15.3,0,99.0,36.0
+Yamaha Janus phiên bản đặc biệt hoàn toàn mới,xe tay ga,ICE,33176000.0,1.98,7.0,15.3,0,99.0,36.0
+Yamaha Latte phiên bản giới hạn màu mới 2025,xe tay ga,ICE,39077000.0,1.8,6.5,37.0,0,100.0,36.0
+Yamaha Latte phiên bản giới hạn màu mới,xe tay ga,ICE,38782000.0,1.8,6.5,37.0,0,100.0,36.0
+Yamaha Latte phiên bản tiêu chuẩn màu mới 2025,xe tay ga,ICE,38586000.0,1.8,6.5,37.0,0,100.0,36.0
+Yamaha Latte phiên bản tiêu chuẩn màu mới,xe tay ga,ICE,38291000.0,1.8,6.5,37.0,0,100.0,36.0
+Yamaha NVX Standard,xe tay ga,ICE,56500000.0,2.21,11.3,25.0,0,122.0,36.0
+Yamaha NVX ABS,xe tay ga,ICE,55300000.0,2.21,11.3,25.0,1,125.0,36.0
+Yamaha NMAX Standard,xe tay ga,ICE,69000000.0,2.26,11.1,24.0,1,131.0,36.0
+Yamaha NMAX Tech Max,xe tay ga,ICE,79000000.0,2.3,11.3,25.0,1,135.0,36.0
+Suzuki Satria Pro,xe côn tay,ICE,59000000.0,3.17,13.5,0.0,1,115.0,36.0
+Suzuki V-Strom 250SX,xe côn tay,ICE,132900000.0,2.74,19.5,0.0,1,165.0,36.0
+SYM Elegant,xe tay ga,ICE,16700000.0,1.53,1.7,0.0,0,95.0,36.0
+SYM Angel,xe tay ga,ICE,17700000.0,1.76,5.3,20.0,0,103.0,36.0
+SYM TPBW Smartkey,xe tay ga,ICE,33800000.0,1.75,7.0,23.7,0,104.0,36.0
+SYM TPBW Key Set,xe tay ga,ICE,32800000.0,1.75,7.0,23.7,0,104.0,36.0
+SYM NAGA,xe tay ga,ICE,49500000.0,2.26,10.6,28.0,0,104.0,36.0
+SYM PRITI,xe tay ga,ICE,29500000.0,1.96,7.1,20.0,0,99.0,36.0
+SYM TUSCANY,xe tay ga,ICE,45000000.0,2.07,8.5,27.0,0,104.0,36.0
+SYM SHARK,xe tay ga,ICE,26500000.0,2.07,2.35,20.0,0,104.0,36.0
+SYM Attila,xe tay ga,ICE,26200000.0,2.07,2.45,28.0,0,107.0,36.0
+SYM Angela,xe tay ga,ICE,17900000.0,1.26,7.0,20.0,0,95.0,36.0
+SYM Elite,xe tay ga,ICE,23100000.0,1.88,2.7,20.0,0,84.0,36.0
+SYM Galaxy,xe tay ga,ICE,18000000.0,1.29,1.9,20.0,0,99.0,36.0
+SYM Elegant Sport,xe tay ga,ICE,17300000.0,1.53,1.7,20.0,0,95.0,36.0
+Kymco Candy Hermosa,xe tay ga,ICE,27290000.0,2.07,2.7,20.0,0,100.0,24.0
+Kymco Candy Hermosa 50Fi,xe tay ga,ICE,29300000.0,2.07,2.43,20.0,0,100.0,24.0
+Kymco K-Pipe,xe số,ICE,22730000.0,2.07,1.8,20.0,0,104.0,24.0
+Kymco Like,xe tay ga,ICE,27330000.0,2.07,2.7,20.0,0,101.0,24.0
+Kymco Like 50Fi,xe tay ga,ICE,29360000.0,2.07,2.43,20.0,0,101.0,24.0
+Kymco People,xe tay ga,ICE,85000000.0,2.15,9.05,20.0,1,134.0,24.0
+Kymco Sky Town,xe tay ga,ICE,72000000.0,2.25,8.46,20.0,1,126.0,24.0
+Kymco Visar,xe tay ga,ICE,17440000.0,100.0,1.8,20.0,0,94.0,24.0
+Kymco Xciting S350,xe tay ga,ICE,115000000.0,2.07,28.5,20.0,1,192.0,24.0
+VinFast Evo Grand,xe tay ga,EV,22500000.0,2.07,7.0,35.0,0,92.0,72.0
+VinFast Evo Grand Lite,xe tay ga,EV,16500000.0,2.07,7.0,35.0,0,82.0,72.0
+VinFast Evo Lite Neo,xe tay ga,EV,14400000.0,2.07,7.0,17.0,0,105.0,36.0
+VinFast Feliz,xe tay ga,EV,26000000.0,2.07,7.0,20.0,0,104.0,72.0
+VinFast Flazz,xe tay ga,EV,14200000.0,2.07,7.0,14.0,0,104.0,72.0
+VinFast Vero X,xe tay ga,EV,34900000.0,2.07,7.0,35.0,0,104.0,72.0
+VinFast ZGoo,xe tay ga,EV,13300000.0,2.07,7.0,12.0,0,104.0,72.0
+Dat Bike Quantum S3,xe máy,EV,34900000.0,2.07,7.0,41.0,0,130.0,36.0
+Yadea Voltguard U80,xe máy,EV,38990000.0,2.07,7.0,15.0,0,104.0,36.0
+Yadea Voltguard U50,xe máy,EV,38990000.0,2.07,7.0,20.0,0,104.0,36.0
+Yadea Voltguard P-L,xe máy,EV,29490000.0,2.07,7.0,20.0,0,104.0,36.0
