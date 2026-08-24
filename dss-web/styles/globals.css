@@ -9,9 +9,9 @@
 
 @theme {
   /* Ba vai trò chữ: display (biển hiệu), body (đọc), mono (số liệu). */
-  --font-display: var(--font-bricolage), 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-plex-sans), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+  --font-display: var(--font-display-custom), 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans-custom), 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-custom), 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 }
 
 :root {
@@ -35,12 +35,12 @@ body {
 /* --- Nền giấy: vân lưới rất nhạt, gợi giấy kẻ ô của bảng thông số ---------- */
 .dss-page-bg {
   background-color: var(--heroui-background, #faf9f7);
-  background-image: linear-gradient(to bottom, rgb(15 92 77 / 0.05), transparent 26rem);
+  background-image: linear-gradient(to bottom, rgb(7 62 136 / 0.05), transparent 26rem);
   background-repeat: no-repeat;
 }
 
 .dark .dss-page-bg {
-  background-image: linear-gradient(to bottom, rgb(53 169 141 / 0.08), transparent 26rem);
+  background-image: linear-gradient(to bottom, rgb(59 130 246 / 0.08), transparent 26rem);
 }
 
 /* --- Kiểu chữ ------------------------------------------------------------- */
@@ -95,7 +95,7 @@ input[type='number'] {
 }
 
 :focus-visible {
-  outline: 2px solid var(--heroui-focus, #0f5c4d);
+  outline: 2px solid var(--heroui-focus, #073E88);
   outline-offset: 2px;
 }
 

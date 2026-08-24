@@ -131,6 +131,8 @@ export interface PriorityQuestion {
   /** Mô tả ý nghĩa của mức 1 và mức 5, giúp người dùng chấm điểm nhất quán. */
   lowLabel: string;
   highLabel: string;
+  /** Mô tả chi tiết cho từng mức điểm 1-5. */
+  scaleLabels: Record<number, string>;
 }
 
 /**
@@ -152,6 +154,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Cost',
     lowLabel: 'Không quá quan trọng',
     highLabel: 'Rất quan trọng, muốn rẻ nhất',
+    scaleLabels: {
+      1: 'Giá nào cũng được',
+      2: 'Hơi ưu tiên giá',
+      3: 'Bình thường',
+      4: 'Ưu tiên xe rẻ',
+      5: 'Rẻ nhất có thể',
+    },
   },
   {
     key: 'performance',
@@ -162,6 +171,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Benefit',
     lowLabel: 'Đi phố nhẹ nhàng là đủ',
     highLabel: 'Cần xe thật khoẻ',
+    scaleLabels: {
+      1: 'Chậm cũng được',
+      2: 'Đi phố thong thả',
+      3: 'Sức mạnh vừa đủ',
+      4: 'Xe cần bốc',
+      5: 'Càng khoẻ càng tốt',
+    },
   },
   {
     key: 'safety',
@@ -172,6 +188,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Benefit',
     lowLabel: 'Bình thường',
     highLabel: 'Bắt buộc phải có',
+    scaleLabels: {
+      1: 'Không quan trọng',
+      2: 'Ít quan tâm',
+      3: 'Cơ bản là đủ',
+      4: 'Ưu tiên có phanh ABS',
+      5: 'Bắt buộc an toàn tối đa',
+    },
   },
   {
     key: 'range',
@@ -182,6 +205,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Cost',
     lowLabel: 'Chỉ đi loanh quanh gần',
     highLabel: 'Cần đi được thật xa',
+    scaleLabels: {
+      1: 'Đổ xăng/sạc liên tục',
+      2: 'Ít đi xa',
+      3: 'Mức trung bình',
+      4: 'Hay đi xa',
+      5: 'Đi đường dài',
+    },
   },
   {
     key: 'storage',
@@ -192,6 +222,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Benefit',
     lowLabel: 'Hầu như không để đồ',
     highLabel: 'Cần cốp thật rộng',
+    scaleLabels: {
+      1: 'Hầu như không để đồ',
+      2: 'Cốp nhỏ',
+      3: 'Cốp bình thường',
+      4: 'Cốp rộng',
+      5: 'Cốp thật rộng',
+    },
   },
   {
     key: 'weight',
@@ -202,6 +239,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Cost',
     lowLabel: 'Không thành vấn đề',
     highLabel: 'Rất cần xe nhẹ',
+    scaleLabels: {
+      1: 'Nặng cũng không sao',
+      2: 'Chấp nhận xe nặng',
+      3: 'Cân nặng vừa phải',
+      4: 'Thích xe nhẹ nhàng',
+      5: 'Phải thật nhẹ, dễ dắt',
+    },
   },
   {
     key: 'durability',
@@ -212,6 +256,13 @@ export const PRIORITY_QUESTIONS: PriorityQuestion[] = [
     direction: 'Benefit',
     lowLabel: 'Bình thường',
     highLabel: 'Rất quan trọng',
+    scaleLabels: {
+      1: 'Ít bận tâm',
+      2: 'Không quan trọng',
+      3: 'Bảo hành tiêu chuẩn',
+      4: 'Rất cần xe bền',
+      5: 'Phải cực kỳ bền bỉ',
+    },
   },
 ];
 

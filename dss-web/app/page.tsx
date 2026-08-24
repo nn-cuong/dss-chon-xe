@@ -31,9 +31,7 @@ export default function HomePage() {
           <h1 className="mt-5 text-balance font-display text-[2.5rem] font-extrabold leading-[1.04] tracking-[-0.025em] sm:text-[3.25rem] lg:text-[3.75rem]">
             Mua xe máy theo
             <br />
-            nhu cầu của bạn,
-            <br />
-            <span className="text-primary">không theo quảng cáo.</span>
+            nhu cầu của bạn!
           </h1>
 
           <p className="mt-6 max-w-[46ch] text-pretty text-[15px] leading-relaxed text-default-600">

@@ -16,7 +16,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="group flex items-center gap-2.5 rounded-sm"
-          aria-label="Chọn Xe — về trang chủ"
+          aria-label="Chọn Xe Việt — về trang chủ"
         >
           <Wordmark />
         </Link>
@@ -50,16 +50,10 @@ export function SiteHeader() {
  */
 function Wordmark() {
   return (
-    <>
-      <span className="flex h-8 items-center rounded-[5px] bg-primary px-2 ring-1 ring-inset ring-white/25">
-        <span className="font-mono text-[13px] font-semibold leading-none tracking-[0.08em] text-primary-foreground">
-          59·X1
-        </span>
+    <span className="flex h-8 items-center rounded-[5px] bg-primary px-3 ring-1 ring-inset ring-white/25">
+      <span className="font-display text-[15px] font-bold tracking-tight text-primary-foreground">
+        Chọn Xe Việt
       </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-[15px] font-bold tracking-tight">Chọn Xe</span>
-        <span className="label-eyebrow mt-1 text-default-500">Xếp hạng TOPSIS</span>
-      </span>
-    </>
+    </span>
   );
 }

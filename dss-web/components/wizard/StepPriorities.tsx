@@ -9,7 +9,6 @@ import { Controller, useForm } from 'react-hook-form';
 
 import {
   PRIORITY_QUESTIONS,
-  PRIORITY_SCALE_LABELS,
   type PriorityKey,
   type UsagePurpose,
 } from '@/config/survey';
@@ -71,7 +70,7 @@ export function StepPriorities({
                       score >= 4 ? 'text-primary' : 'text-default-500',
                     )}
                   >
-                    {score}/5 · {PRIORITY_SCALE_LABELS[score]}
+                    {score}/5 · {q.scaleLabels[score]}
                   </span>
                 </div>
 
