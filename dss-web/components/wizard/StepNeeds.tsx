@@ -2,6 +2,7 @@
 
 /** PHẦN 1 — NHU CẦU: 4 câu hỏi ngắn. */
 import { Button } from '@heroui/button';
+import { Checkbox, CheckboxGroup } from '@heroui/checkbox';
 import { NumberInput } from '@heroui/number-input';
 import { Radio, RadioGroup } from '@heroui/radio';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -175,12 +176,12 @@ export function StepNeeds({ defaultValues, onSubmit }: StepNeedsProps) {
         </Field>
 
         {/* 4 — Mục đích */}
-        <Field index={4} label="Bạn dùng xe chủ yếu để làm gì?">
+        <Field index={4} label="Bạn dùng xe chủ yếu để làm gì? (Có thể chọn nhiều)">
           <Controller
             name="purpose"
             control={control}
             render={({ field }) => (
-              <RadioGroup
+              <CheckboxGroup
                 aria-label="Mục đích sử dụng"
                 value={field.value}
                 onValueChange={field.onChange}
@@ -191,20 +192,21 @@ export function StepNeeds({ defaultValues, onSubmit }: StepNeedsProps) {
                 errorMessage={errors.purpose?.message}
               >
                 {PURPOSE_OPTIONS.map((opt) => (
-                  <Radio
+                  <Checkbox
                     key={opt.value}
                     value={opt.value}
-                    description={opt.hint}
                     classNames={{
-                      base: clsx(optionBase, purpose === opt.value ? optionOn : optionOff),
-                      label: 'text-sm font-semibold',
-                      description: 'text-xs leading-snug',
+                      base: clsx(optionBase, field.value?.includes(opt.value) ? optionOn : optionOff),
+                      label: 'w-full',
                     }}
                   >
-                    {opt.label}
-                  </Radio>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold">{opt.label}</span>
+                      <span className="text-xs leading-snug text-default-500 font-normal">{opt.hint}</span>
+                    </div>
+                  </Checkbox>
                 ))}
-              </RadioGroup>
+              </CheckboxGroup>
             )}
           />
         </Field>

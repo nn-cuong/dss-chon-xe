@@ -21,6 +21,7 @@
     "@heroui/accordion": "^2.2.24",
     "@heroui/button": "^2.2.28",
     "@heroui/card": "^2.2.27",
+    "@heroui/checkbox": "^2.3.32",
     "@heroui/chip": "^2.2.22",
     "@heroui/divider": "^2.2.18",
     "@heroui/input": "^2.4.28",

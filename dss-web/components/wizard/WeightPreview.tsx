@@ -13,7 +13,7 @@ import { computeWeights } from '@/lib/dss/mapping';
 
 interface WeightPreviewProps {
   priorities: Record<PriorityKey, number>;
-  purpose: UsagePurpose;
+  purpose: UsagePurpose[];
 }
 
 export function WeightPreview({ priorities, purpose }: WeightPreviewProps) {
@@ -31,7 +31,10 @@ export function WeightPreview({ priorities, purpose }: WeightPreviewProps) {
 
   const sorted = useMemo(() => [...breakdown].sort((a, b) => b.weight - a.weight), [breakdown]);
   const max = sorted[0]?.weight ?? 1;
-  const purposeLabel = PURPOSE_OPTIONS.find((p) => p.value === purpose)?.label ?? '';
+  const purposeLabel = purpose
+    .map((p) => PURPOSE_OPTIONS.find((opt) => opt.value === p)?.label)
+    .filter(Boolean)
+    .join(', ');
   const boosted = sorted.filter((b) => b.adjustedScore > b.rawScore + 1e-6);
 
   return (

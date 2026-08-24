@@ -24,7 +24,7 @@ export const DEFAULT_ANSWERS: SurveyAnswers = {
   budgetVnd: 40_000_000,
   powertrain: 'ALL',
   dailyKm: 20,
-  purpose: 'di_lam',
+  purpose: ['di_lam'],
   priorities: DEFAULT_PRIORITIES,
 };
 

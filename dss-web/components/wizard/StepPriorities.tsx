@@ -17,7 +17,7 @@ import { prioritiesSchema, type PrioritiesFormValues } from '@/lib/dss/schema';
 
 interface StepPrioritiesProps {
   defaultValues: PrioritiesFormValues;
-  purpose: UsagePurpose;
+  purpose: UsagePurpose[];
   isSubmitting?: boolean;
   onBack: () => void;
   onSubmit: (values: PrioritiesFormValues) => void;

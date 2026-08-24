@@ -23,7 +23,7 @@ export interface SurveyAnswers {
   budgetVnd: number;
   powertrain: Powertrain;
   dailyKm: number;
-  purpose: UsagePurpose;
+  purpose: UsagePurpose[];
   /* Phần 2 — Ưu tiên (1–5) */
   priorities: Record<PriorityKey, number>;
 }
@@ -47,16 +47,22 @@ export interface WeightBreakdown {
  */
 export function applyPurposeBoost(
   priorities: Record<PriorityKey, number>,
-  purpose: UsagePurpose,
+  purposes: UsagePurpose[],
 ): Record<PriorityKey, number> {
-  const option = PURPOSE_OPTIONS.find((p) => p.value === purpose);
-  const boost = option?.weightBoost ?? {};
+  const boosts = purposes
+    .map((p) => PURPOSE_OPTIONS.find((opt) => opt.value === p)?.weightBoost ?? {})
+    .filter(Boolean);
 
   const out = {} as Record<PriorityKey, number>;
   for (const q of PRIORITY_QUESTIONS) {
     const raw = priorities[q.key] ?? 3;
-    const factor = boost[q.key] ?? 1;
-    out[q.key] = Math.min(5, Math.max(1, raw * factor));
+    let maxFactor = 1;
+    for (const b of boosts) {
+      if (b[q.key] && b[q.key]! > maxFactor) {
+        maxFactor = b[q.key]!;
+      }
+    }
+    out[q.key] = Math.min(5, Math.max(1, raw * maxFactor));
   }
   return out;
 }

@@ -29,9 +29,9 @@ export const needsSchema = z.object({
     .number({ message: 'Vui lòng nhập số km mỗi ngày.' })
     .min(0, 'Số km không được âm.')
     .max(DAILY_KM_MAX, `Tối đa ${DAILY_KM_MAX} km/ngày.`),
-  purpose: z.enum(['di_hoc', 'di_lam', 'ca_nhan', 'dua_don', 'mua_sam', 'duong_dai'], {
-    message: 'Vui lòng chọn mục đích sử dụng.',
-  }),
+  purpose: z
+    .array(z.enum(['di_hoc', 'di_lam', 'ca_nhan', 'dua_don', 'mua_sam', 'duong_dai']))
+    .min(1, 'Vui lòng chọn ít nhất 1 mục đích sử dụng.'),
 });
 
 export const prioritiesSchema = z.object({
