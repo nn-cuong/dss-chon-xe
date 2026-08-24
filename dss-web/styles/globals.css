@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+@plugin '../hero.mjs';
+
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@source '../app/**/*.{ts,tsx}';
+@source '../components/**/*.{ts,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Ba vai trò chữ: display (biển hiệu), body (đọc), mono (số liệu). */
+  --font-display: var(--font-bricolage), 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-feature-settings: 'cv05' 1;
+}
+
+/* --- Nền giấy: vân lưới rất nhạt, gợi giấy kẻ ô của bảng thông số ---------- */
+.dss-page-bg {
+  background-color: var(--heroui-background, #faf9f7);
+  background-image: linear-gradient(to bottom, rgb(15 92 77 / 0.05), transparent 26rem);
+  background-repeat: no-repeat;
+}
+
+.dark .dss-page-bg {
+  background-image: linear-gradient(to bottom, rgb(53 169 141 / 0.08), transparent 26rem);
+}
+
+/* --- Kiểu chữ ------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+/*
+ * Nhãn nhỏ cho tiêu đề khối.
+ *
+ * KHÔNG dùng `text-transform: uppercase` cùng letter-spacing lớn: tiếng Việt
+ * có dấu nằm trên/dưới nguyên âm, in hoa và giãn chữ mạnh khiến dấu tách rời
+ * và rất khó đọc ("CÔNG SUẤT" trông như "CONG SUAT"). Thay vào đó dùng chữ
+ * thường, cỡ nhỏ, đậm vừa — vẫn tách bạch khỏi nội dung mà giữ nguyên dấu.
+ */
+.label-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* Mọi con số xếp cột đều dùng chữ số đều nhau. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Đường kẻ mảnh thay cho viền thẻ — gọn hơn, ít "hộp trong hộp". */
+.rule-t {
+  border-top: 1px solid var(--rule, rgb(0 0 0 / 0.1));
+}
+
+:root {
+  --rule: rgb(18 17 15 / 0.1);
+}
+
+.dark {
+  --rule: rgb(242 239 233 / 0.12);
+}
+
+/* --- Chi tiết ------------------------------------------------------------- */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+:focus-visible {
+  outline: 2px solid var(--heroui-focus, #0f5c4d);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .dss-page-bg {
+    background: none;
+  }
+}
