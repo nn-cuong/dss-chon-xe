@@ -27,13 +27,16 @@ export function ResultSummaryBar({
   onRestart,
 }: ResultSummaryBarProps) {
   const powertrain = POWERTRAIN_OPTIONS.find((o) => o.value === answers.powertrain);
-  const purpose = PURPOSE_OPTIONS.find((o) => o.value === answers.purpose);
+  const purposeLabels = answers.purpose
+    .map((p) => PURPOSE_OPTIONS.find((o) => o.value === p)?.label)
+    .filter(Boolean)
+    .join(', ');
 
   const facts = [
     `≤ ${formatVndShort(answers.budgetVnd)}`,
     powertrain?.label ?? '',
     `${answers.dailyKm} km/ngày`,
-    purpose?.label ?? '',
+    purposeLabels || '',
   ].filter(Boolean);
 
   return (
