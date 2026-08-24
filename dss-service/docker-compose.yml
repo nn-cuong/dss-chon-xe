@@ -14,3 +14,18 @@ services:
       # Mount the data directory so dataset/weights can be updated without a rebuild.
       - ./backend/data:/app/data
     restart: unless-stopped
+
+  dss-web:
+    build:
+      context: ../dss-web
+      dockerfile: Dockerfile
+      args:
+        # NEXT_PUBLIC_* được bundle vào frontend lúc build; browser gọi API qua host.
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    image: dss-motorbike-web:latest
+    container_name: dss-web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - dss-api
+    restart: unless-stopped
