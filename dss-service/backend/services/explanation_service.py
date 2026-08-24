@@ -57,8 +57,8 @@ class DecisionExplainer:
             if better:
                 advantages.append(
                     f"{DecisionExplainer.CRITERIA_NAMES.get(crit, crit)} "
-                    f"({name1}: {DecisionExplainer._fmt(v1)} vs "
-                    f"{DecisionExplainer._name_bike(top_2)}: {DecisionExplainer._fmt(v2)})"
+                    f"({name1}: {DecisionExplainer._fmt(v1, crit)} vs "
+                    f"{DecisionExplainer._name_bike(top_2)}: {DecisionExplainer._fmt(v2, crit)})"
                 )
             if len(advantages) >= 3:
                 break
@@ -122,8 +122,15 @@ class DecisionExplainer:
         return DecisionExplainer._bike_label(row)
 
     @staticmethod
-    def _fmt(value: Any) -> str:
+    def _fmt(value: Any, crit: str = "") -> str:
         try:
-            return f"{float(value):.2f}"
+            v = float(value)
+            if crit == "price_vnd":
+                # Format price e.g. 34.855.000 VNĐ
+                return f"{int(v):,} VNĐ".replace(",", ".")
+            # Clean up trailing zeros for integers
+            if v.is_integer():
+                return f"{int(v)}"
+            return f"{v:.2f}"
         except (TypeError, ValueError):
             return str(value)
