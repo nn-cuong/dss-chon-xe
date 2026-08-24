@@ -9,7 +9,7 @@
  */
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 
-import { DEFAULT_PRIORITY_SCORE, PRIORITY_QUESTIONS, type PriorityKey } from '@/config/survey';
+import { DEFAULT_PRIORITY_SCORE, PRIORITY_QUESTIONS, type PriorityKey, type UsagePurpose } from '@/config/survey';
 import { useMounted } from '@/lib/dss/useMounted';
 import type { SurveyAnswers } from '@/lib/dss/mapping';
 import type { DSSRunResponse } from '@/types/dss';
@@ -50,6 +50,12 @@ function readStoredAnswers(): SurveyAnswers | null {
     const raw = window.sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as Partial<SurveyAnswers>;
+    
+    // Đảm bảo purpose luôn là mảng (tương thích ngược với bản cũ lưu dạng chuỗi)
+    if (typeof parsed.purpose === 'string') {
+      parsed.purpose = [parsed.purpose as unknown as UsagePurpose];
+    }
+    
     return {
       ...DEFAULT_ANSWERS,
       ...parsed,
