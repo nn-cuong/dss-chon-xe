@@ -24,7 +24,7 @@ export const needsSchema = z.object({
     .number({ message: 'Vui lòng nhập ngân sách.' })
     .min(BUDGET_MIN, `Ngân sách tối thiểu là ${(BUDGET_MIN / 1_000_000).toLocaleString('vi-VN')} triệu đồng.`)
     .max(BUDGET_MAX, 'Ngân sách quá lớn, vui lòng kiểm tra lại.'),
-  powertrain: z.enum(['ICE', 'EV', 'ALL'], { message: 'Vui lòng chọn loại xe.' }),
+  vehiclePreference: z.enum(['xe tay ga', 'xe số', 'xe côn tay', 'EV', 'ALL'], { message: 'Vui lòng chọn loại xe.' }),
   dailyKm: z
     .number({ message: 'Vui lòng nhập số km mỗi ngày.' })
     .min(0, 'Số km không được âm.')

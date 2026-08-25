@@ -9,7 +9,7 @@
  */
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 
-import { DEFAULT_PRIORITY_SCORE, PRIORITY_QUESTIONS, type PriorityKey, type UsagePurpose } from '@/config/survey';
+import { DEFAULT_PRIORITY_SCORE, PRIORITY_QUESTIONS, type PriorityKey, type UsagePurpose, type VehiclePreference } from '@/config/survey';
 import { useMounted } from '@/lib/dss/useMounted';
 import type { SurveyAnswers } from '@/lib/dss/mapping';
 import type { DSSRunResponse } from '@/types/dss';
@@ -22,7 +22,7 @@ export const DEFAULT_PRIORITIES = Object.fromEntries(
 
 export const DEFAULT_ANSWERS: SurveyAnswers = {
   budgetVnd: 40_000_000,
-  powertrain: 'ALL',
+  vehiclePreference: 'ALL',
   dailyKm: 20,
   purpose: ['di_lam'],
   priorities: DEFAULT_PRIORITIES,
@@ -54,6 +54,17 @@ function readStoredAnswers(): SurveyAnswers | null {
     // Đảm bảo purpose luôn là mảng (tương thích ngược với bản cũ lưu dạng chuỗi)
     if (typeof parsed.purpose === 'string') {
       parsed.purpose = [parsed.purpose as unknown as UsagePurpose];
+    }
+
+    // Tương thích ngược: chuyển powertrain thành vehiclePreference
+    const rawPowertrain = (parsed as any).powertrain;
+    if (rawPowertrain && !parsed.vehiclePreference) {
+      if (rawPowertrain === 'ICE') {
+        parsed.vehiclePreference = 'ALL'; // Chuyển tạm về ALL vì mất context xe số/xe ga
+      } else {
+        parsed.vehiclePreference = rawPowertrain as VehiclePreference;
+      }
+      delete (parsed as any).powertrain;
     }
     
     return {

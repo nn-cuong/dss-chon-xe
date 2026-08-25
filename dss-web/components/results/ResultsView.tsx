@@ -120,10 +120,9 @@ export function ResultsView() {
             updateAnswers({ budgetVnd: budget });
             void rerun(next);
           }}
-          onRelaxPowertrain={() => {
-            const powertrain: Powertrain = 'ALL';
-            const next = { ...answers, powertrain };
-            updateAnswers({ powertrain });
+          onRelaxVehiclePreference={() => {
+            const next = { ...answers, vehiclePreference: 'ALL' as const };
+            updateAnswers({ vehiclePreference: 'ALL' });
             void rerun(next);
           }}
           onEdit={goEdit}

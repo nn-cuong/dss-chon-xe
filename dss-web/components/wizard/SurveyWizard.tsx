@@ -88,7 +88,7 @@ export function SurveyWizard() {
         <StepNeeds
           defaultValues={{
             budgetVnd: answers.budgetVnd,
-            powertrain: answers.powertrain,
+            vehiclePreference: answers.vehiclePreference,
             dailyKm: answers.dailyKm,
             purpose: answers.purpose,
           }}
@@ -98,7 +98,7 @@ export function SurveyWizard() {
 
       {step === 'priorities' && (
         <StepPriorities
-          defaultValues={{ priorities: answers.priorities }}
+          defaultValues={{ priorities: answers.priorities as any }}
           purpose={answers.purpose}
           isSubmitting={runDss.isPending}
           onBack={() => setStep('needs')}

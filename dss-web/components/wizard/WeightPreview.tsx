@@ -21,7 +21,7 @@ export function WeightPreview({ priorities, purpose }: WeightPreviewProps) {
     () =>
       computeWeights({
         budgetVnd: 0,
-        powertrain: 'ALL',
+        vehiclePreference: 'ALL',
         dailyKm: 0,
         purpose,
         priorities,

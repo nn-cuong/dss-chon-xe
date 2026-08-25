@@ -3,7 +3,7 @@
 /** Khi hard-filter loại hết xe: giải thích và gợi ý cách nới lỏng điều kiện. */
 import { Button } from '@heroui/button';
 
-import { BUDGET_PRESETS, POWERTRAIN_OPTIONS } from '@/config/survey';
+import { BUDGET_PRESETS, VEHICLE_TYPE_OPTIONS } from '@/config/survey';
 import { formatVndShort } from '@/lib/dss/format';
 import type { SurveyAnswers } from '@/lib/dss/mapping';
 
@@ -11,7 +11,7 @@ interface EmptyResultProps {
   message: string;
   answers: SurveyAnswers;
   onRelaxBudget: (nextBudget: number) => void;
-  onRelaxPowertrain: () => void;
+  onRelaxVehiclePreference: () => void;
   onEdit: () => void;
 }
 
@@ -19,7 +19,7 @@ export function EmptyResult({
   message,
   answers,
   onRelaxBudget,
-  onRelaxPowertrain,
+  onRelaxVehiclePreference,
   onEdit,
 }: EmptyResultProps) {
   // Nhân 1.5 lần thường vẫn chưa đủ mua chiếc rẻ nhất khi ngân sách quá thấp,
@@ -28,8 +28,8 @@ export function EmptyResult({
     BUDGET_PRESETS.find((p) => p.value > answers.budgetVnd)?.value ??
     Math.round((answers.budgetVnd * 1.5) / 1_000_000) * 1_000_000;
 
-  const powertrainLabel =
-    POWERTRAIN_OPTIONS.find((o) => o.value === answers.powertrain)?.label ?? '';
+  const vehiclePreferenceLabel =
+    VEHICLE_TYPE_OPTIONS.find((o) => o.value === answers.vehiclePreference)?.label ?? '';
 
   return (
     <section className="rounded-lg border border-divider bg-content1 px-6 py-12 sm:px-10">
@@ -46,10 +46,10 @@ export function EmptyResult({
             ≤ {formatVndShort(answers.budgetVnd)}
           </dd>
         </div>
-        {answers.powertrain !== 'ALL' && (
+        {answers.vehiclePreference !== 'ALL' && (
           <div>
-            <dt className="label-eyebrow text-default-400">Loại xe</dt>
-            <dd className="mt-1 text-sm font-medium">{powertrainLabel}</dd>
+            <dt className="text-xs text-default-500">Loại xe</dt>
+            <dd className="mt-1 text-sm font-medium">{vehiclePreferenceLabel}</dd>
           </div>
         )}
       </dl>
@@ -58,9 +58,9 @@ export function EmptyResult({
         <Button color="primary" radius="sm" onPress={() => onRelaxBudget(suggestedBudget)}>
           Nâng lên {formatVndShort(suggestedBudget)}
         </Button>
-        {answers.powertrain !== 'ALL' && (
-          <Button variant="bordered" radius="sm" onPress={onRelaxPowertrain}>
-            Xem cả xe xăng và xe điện
+        {answers.vehiclePreference !== 'ALL' && (
+          <Button variant="bordered" radius="sm" onPress={onRelaxVehiclePreference}>
+            Xem tất cả loại xe
           </Button>
         )}
         <Button variant="light" radius="sm" onPress={onEdit}>

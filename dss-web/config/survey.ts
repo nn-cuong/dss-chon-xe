@@ -13,17 +13,21 @@ import type { CriterionKey, Powertrain, VehicleType } from '@/types/dss';
 /* PHẦN 1 — NHU CẦU                                                            */
 /* -------------------------------------------------------------------------- */
 
-export interface PowertrainOption {
-  value: Powertrain;
+export type VehiclePreference = 'xe tay ga' | 'xe số' | 'xe côn tay' | 'EV' | 'ALL';
+
+export interface VehicleTypeOption {
+  value: VehiclePreference;
   label: string;
   hint: string;
   emoji: string;
 }
 
-export const POWERTRAIN_OPTIONS: PowertrainOption[] = [
-  { value: 'ICE', label: 'Xe xăng', hint: 'Đổ xăng, đi được xa, trạm xăng ở khắp nơi', emoji: '⛽' },
-  { value: 'EV', label: 'Xe điện', hint: 'Sạc điện, chạy êm, chi phí mỗi km thấp hơn', emoji: '🔌' },
-  { value: 'ALL', label: 'Không giới hạn', hint: 'Xem cả hai loại và so sánh', emoji: '🔀' },
+export const VEHICLE_TYPE_OPTIONS: VehicleTypeOption[] = [
+  { value: 'xe tay ga', label: 'Xe tay ga', hint: 'Dễ lái, cốp rộng, đi phố nhàn hạ', emoji: '🛵' },
+  { value: 'xe số', label: 'Xe số', hint: 'Gọn nhẹ, tiết kiệm xăng, bền bỉ', emoji: '🏍️' },
+  { value: 'xe côn tay', label: 'Xe côn tay', hint: 'Kiểu dáng thể thao, bốc, cảm giác lái', emoji: '🏁' },
+  { value: 'EV', label: 'Xe điện', hint: 'Sạc điện, chạy êm, chi phí mỗi km thấp', emoji: '🔌' },
+  { value: 'ALL', label: 'Không giới hạn', hint: 'Xem tất cả các loại và so sánh', emoji: '🔀' },
 ];
 
 /** Mục đích sử dụng chính — dùng để gợi ý loại xe và điều chỉnh nhẹ trọng số. */

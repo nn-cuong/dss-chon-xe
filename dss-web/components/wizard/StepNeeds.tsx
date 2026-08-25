@@ -13,7 +13,7 @@ import {
   BUDGET_PRESETS,
   DAILY_KM_MAX,
   DAILY_KM_THRESHOLDS,
-  POWERTRAIN_OPTIONS,
+  VEHICLE_TYPE_OPTIONS,
   PURPOSE_OPTIONS,
 } from '@/config/survey';
 import { Field, StepShell } from '@/components/wizard/StepShell';
@@ -46,7 +46,7 @@ export function StepNeeds({ defaultValues, onSubmit }: StepNeedsProps) {
 
   const budget = watch('budgetVnd');
   const dailyKm = watch('dailyKm');
-  const powertrain = watch('powertrain');
+  const vehiclePreference = watch('vehiclePreference');
   const purpose = watch('purpose');
 
   return (
@@ -115,24 +115,26 @@ export function StepNeeds({ defaultValues, onSubmit }: StepNeedsProps) {
         {/* 2 — Loại xe */}
         <Field index={2} label="Bạn muốn loại xe nào?">
           <Controller
-            name="powertrain"
+            name="vehiclePreference"
             control={control}
             render={({ field }) => (
               <RadioGroup
                 aria-label="Loại xe"
                 value={field.value}
                 onValueChange={field.onChange}
-                classNames={{ wrapper: 'grid grid-cols-1 gap-2.5 sm:grid-cols-3' }}
-                isInvalid={Boolean(errors.powertrain)}
-                errorMessage={errors.powertrain?.message}
+                classNames={{
+                  wrapper: 'grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3',
+                }}
+                isInvalid={Boolean(errors.vehiclePreference)}
+                errorMessage={errors.vehiclePreference?.message}
               >
-                {POWERTRAIN_OPTIONS.map((opt) => (
+                {VEHICLE_TYPE_OPTIONS.map((opt) => (
                   <Radio
                     key={opt.value}
                     value={opt.value}
                     description={opt.hint}
                     classNames={{
-                      base: clsx(optionBase, powertrain === opt.value ? optionOn : optionOff),
+                      base: clsx(optionBase, field.value === opt.value ? optionOn : optionOff),
                       label: 'text-sm font-semibold',
                       description: 'text-xs leading-snug',
                     }}

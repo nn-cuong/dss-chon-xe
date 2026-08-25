@@ -14,6 +14,7 @@ import {
   PURPOSE_OPTIONS,
   type PriorityKey,
   type UsagePurpose,
+  type VehiclePreference,
 } from '@/config/survey';
 import type { CriterionKey, DSSRunRequest, Powertrain, RankedBike } from '@/types/dss';
 
@@ -21,7 +22,7 @@ import type { CriterionKey, DSSRunRequest, Powertrain, RankedBike } from '@/type
 export interface SurveyAnswers {
   /* Phần 1 — Nhu cầu */
   budgetVnd: number;
-  powertrain: Powertrain;
+  vehiclePreference: VehiclePreference;
   dailyKm: number;
   purpose: UsagePurpose[];
   /* Phần 2 — Ưu tiên (1–5) */
@@ -77,17 +78,21 @@ export function computeWeights(answers: SurveyAnswers): {
 } {
   const adjusted = applyPurposeBoost(answers.priorities, answers.purpose);
 
-  const total = PRIORITY_QUESTIONS.reduce((sum, q) => sum + adjusted[q.key], 0);
+  const total = PRIORITY_QUESTIONS.reduce((sum, q) => sum + (adjusted[q.key] ?? 3), 0);
   const safeTotal = total > 0 ? total : PRIORITY_QUESTIONS.length;
 
-  const breakdown: WeightBreakdown[] = PRIORITY_QUESTIONS.map((q) => ({
-    key: q.key,
-    criterion: q.criterion,
-    label: q.label,
-    rawScore: answers.priorities[q.key] ?? 3,
-    adjustedScore: adjusted[q.key],
-    weight: adjusted[q.key] / safeTotal,
-  }));
+  const breakdown: WeightBreakdown[] = PRIORITY_QUESTIONS.map((q) => {
+    const rawScore = answers.priorities[q.key] ?? 3;
+    const adjustedScore = adjusted[q.key] ?? 3;
+    return {
+      key: q.key,
+      criterion: q.criterion,
+      label: q.label,
+      rawScore,
+      adjustedScore,
+      weight: adjustedScore / safeTotal,
+    };
+  });
 
   // Sắp xếp lại theo thứ tự cột mà backend yêu cầu.
   const byCriterion = new Map(breakdown.map((b) => [b.criterion, b.weight]));
@@ -100,13 +105,23 @@ export function computeWeights(answers: SurveyAnswers): {
 export function buildRunRequest(answers: SurveyAnswers): DSSRunRequest {
   const { weights } = computeWeights(answers);
 
+  let powertrain: Powertrain | null = null;
+  let vehicle_type: string | null = null;
+
+  if (answers.vehiclePreference === 'EV') {
+    powertrain = 'EV';
+  } else if (answers.vehiclePreference === 'ALL') {
+    powertrain = 'ALL';
+  } else {
+    powertrain = 'ICE';
+    vehicle_type = answers.vehiclePreference;
+  }
+
   return {
     weights,
     max_price_vnd: answers.budgetVnd > 0 ? answers.budgetVnd : null,
-    powertrain: answers.powertrain,
-    // Không hard-filter theo loại xe: mục đích sử dụng chỉ dùng để gợi ý và
-    // điều chỉnh trọng số, tránh loại oan các mẫu xe phù hợp.
-    vehicle_type: null,
+    powertrain,
+    vehicle_type,
     brand_list: null,
     pairwise_matrix: null,
   };

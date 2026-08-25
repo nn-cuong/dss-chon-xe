@@ -3,7 +3,7 @@
 /** Tóm tắt điều kiện đã chọn + hành động xuất / sửa. */
 import { Button } from '@heroui/button';
 
-import { POWERTRAIN_OPTIONS, PURPOSE_OPTIONS } from '@/config/survey';
+import { VEHICLE_TYPE_OPTIONS, PURPOSE_OPTIONS } from '@/config/survey';
 import { exportRankingsCsv, exportRankingsPdf } from '@/lib/dss/export';
 import { formatVndShort } from '@/lib/dss/format';
 import type { SurveyAnswers } from '@/lib/dss/mapping';
@@ -26,7 +26,7 @@ export function ResultSummaryBar({
   onEdit,
   onRestart,
 }: ResultSummaryBarProps) {
-  const powertrain = POWERTRAIN_OPTIONS.find((o) => o.value === answers.powertrain);
+  const vehiclePreference = VEHICLE_TYPE_OPTIONS.find((o) => o.value === answers.vehiclePreference);
   const purposeLabels = answers.purpose
     .map((p) => PURPOSE_OPTIONS.find((o) => o.value === p)?.label)
     .filter(Boolean)
@@ -34,7 +34,7 @@ export function ResultSummaryBar({
 
   const facts = [
     `≤ ${formatVndShort(answers.budgetVnd)}`,
-    powertrain?.label ?? '',
+    vehiclePreference?.label ?? '',
     `${answers.dailyKm} km/ngày`,
     purposeLabels || '',
   ].filter(Boolean);
