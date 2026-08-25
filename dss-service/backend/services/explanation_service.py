@@ -124,13 +124,12 @@ class DecisionExplainer:
     @staticmethod
     def _fmt(value: Any, crit: str = "") -> str:
         try:
-            v = float(value)
+            val = float(value)
             if crit == "price_vnd":
-                # Format price e.g. 34.855.000 VNĐ
-                return f"{int(v):,} VNĐ".replace(",", ".")
-            # Clean up trailing zeros for integers
-            if v.is_integer():
-                return f"{int(v)}"
-            return f"{v:.2f}"
+                return f"{int(val):,}".replace(",", ".") + " VNĐ"
+            # Format numbers like 3.00 to just 3 if they are whole, else 3.50
+            if val.is_integer():
+                return f"{int(val)}"
+            return f"{val:.2f}"
         except (TypeError, ValueError):
             return str(value)
